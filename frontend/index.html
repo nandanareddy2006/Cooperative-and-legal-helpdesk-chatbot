@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sahakaar-Saathi | Cooperative Helpdesk AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="logo">🌱</div>
+
+      <div>
+        <h1>Sahakaar-Saathi</h1>
+        <p>Your trusted companion for<br>
+        cooperative society support</p>
+      </div>
+    </div>
+
+    <nav>
+
+      <button class="nav-link active">
+        <span>⌂</span> Home
+      </button>
+
+      <button class="nav-link">
+        <span>◌</span> Chat
+      </button>
+
+      <button class="nav-link">
+        <span>▣</span> Guided Procedures
+      </button>
+
+      <button class="nav-link">
+        <span>⚖</span> Legal Help
+      </button>
+
+      <button class="nav-link">
+        <span>▤</span> Knowledge Base
+      </button>
+
+      <button class="nav-link">
+        <span>◷</span> My Queries
+      </button>
+
+    </nav>
+
+    <div class="recent-title">
+      RECENT CONVERSATIONS
+    </div>
+
+    <div class="recent">
+
+      <button>
+        ◌
+        <span>
+          What are my voting rights?
+          <small>Today</small>
+        </span>
+      </button>
+
+      <button>
+        ◌
+        <span>
+          How do I file a grievance?
+          <small>Today</small>
+        </span>
+      </button>
+
+      <button>
+        ◌
+        <span>
+          Cooperative membership...
+          <small>Yesterday</small>
+        </span>
+      </button>
+
+      <button>
+        ◌
+        <span>
+          Election process details
+          <small>Yesterday</small>
+        </span>
+      </button>
+
+    </div>
+
+    <div class="sidebar-bottom">
+
+      <button class="language">
+        🌐 English⌄
+      </button>
+
+      <div class="online">
+        <i></i> Online
+      </div>
+
+      <div class="land-art">
+        🌿 🏠 🌱 👨‍👩‍👧 🌾
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <div>
+        <h2>Sahakaar-Saathi</h2>
+        <span>Cooperative Helpdesk AI</span>
+      </div>
+
+      <div class="header-links">
+        <a>Understand</a>
+        <b>|</b>
+        <a>Get Guidance</a>
+        <b>|</b>
+        <a>Take Action</a>
+      </div>
+
+      <div class="header-actions">
+
+        <select id="language">
+          <option>English</option>
+          <option>हिन्दी</option>
+          <option>తెలుగు</option>
+        </select>
+
+        <button class="profile">
+          ♙
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <div class="layout">
+
+      <!-- CENTER -->
+      <section class="center">
+
+        <!-- WELCOME -->
+        <section class="welcome-card">
+
+          <div class="bot">
+            <div class="bot-face">
+              🤖
+            </div>
+            <span class="sprout">🌱</span>
+          </div>
+
+          <div class="welcome-text">
+
+            <h3>Namaste! 👋</h3>
+
+            <p>
+              I'm <strong>Sahakaar-Saathi</strong>, your cooperative society assistant.<br>
+              I can help you with governance, procedures, legal rights, grievances,<br>
+              and more — in your preferred language.
+            </p>
+
+          </div>
+
+
+          <!-- QUICK ACTIONS -->
+
+          <div class="quick-grid">
+
+            <button class="quick green"
+                    data-question="What are my voting rights?">
+
+              <span>🗳</span>
+
+              <strong>Voting Rights</strong>
+
+              <small>
+                Know your election rights
+              </small>
+
+            </button>
+
+
+            <button class="quick blue"
+                    data-question="How do I file a grievance?">
+
+              <span>▣</span>
+
+              <strong>File a Grievance</strong>
+
+              <small>
+                Step-by-step guidance
+              </small>
+
+            </button>
+
+
+            <button class="quick orange"
+                    data-question="How do I become a member?">
+
+              <span>👥</span>
+
+              <strong>Membership</strong>
+
+              <small>
+                Learn the process
+              </small>
+
+            </button>
+
+
+            <button class="quick purple"
+                    data-question="What are my legal rights?">
+
+              <span>⚖</span>
+
+              <strong>Legal Help</strong>
+
+              <small>
+                Understand your rights
+              </small>
+
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- DEMO CHAT -->
+
+        <section class="conversation">
+
+          <div class="user-msg">
+
+            <div class="avatar">
+              M
+            </div>
+
+            <div class="bubble user-bubble">
+              How do I file a grievance?
+              <small>10:24 AM</small>
+            </div>
+
+          </div>
+
+
+          <div class="bot-msg">
+
+            <div class="mini-bot">
+              🤖
+            </div>
+
+            <div>
+
+              <div class="bubble bot-bubble">
+
+                I can help you with the grievance process.
+                Here's a step-by-step guided procedure to file
+                a complaint in your cooperative society.
+
+                <small>10:24 AM</small>
+
+              </div>
+
+
+              <!-- PROCEDURE -->
+
+              <div class="procedure-card">
+
+                <div class="proc-head">
+
+                  <div class="proc-icon">
+                    ▣
+                  </div>
+
+                  <div>
+
+                    <strong>
+                      Grievance Filing Procedure
+                    </strong>
+
+                    <span>
+                      Follow these 4 simple steps to file your grievance.
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="steps">
+
+                  <div class="step active">
+                    <b>1</b>
+                    <span>Describe Issue</span>
+                  </div>
+
+                  <i></i>
+
+                  <div class="step">
+                    <b>2</b>
+                    <span>Prepare Documents</span>
+                  </div>
+
+                  <i></i>
+
+                  <div class="step">
+                    <b>3</b>
+                    <span>Write Complaint</span>
+                  </div>
+
+                  <i></i>
+
+                  <div class="step">
+                    <b>4</b>
+                    <span>Submit</span>
+                  </div>
+
+                </div>
+
+
+                <div class="step-content">
+
+                  <div class="step-number">
+                    1
+                  </div>
+
+                  <div class="step-copy">
+
+                    <h4>
+                      Describe Your Issue
+                    </h4>
+
+                    <p>
+                      Tell us what happened and what you need help with.
+                      Be as specific as possible.
+                    </p>
+
+                    <input
+                      placeholder="Example: The society rejected my membership without giving a reason..."
+                    >
+
+                  </div>
+
+                  <button id="nextStep">
+                    Next Step →
+                  </button>
+
+                </div>
+
+                <small class="card-time">
+                  10:24 AM
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- CHAT INPUT -->
+
+        <div class="chat-area">
+
+          <button class="clip">
+            📎
+          </button>
+
+          <textarea
+            id="message"
+            rows="1"
+            placeholder="Type your question here..."
+          ></textarea>
+
+          <button class="send" id="send">
+            ➤
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- RIGHT PANEL -->
+
+      <aside class="rightbar">
+
+        <section class="info-card">
+
+          <h3>
+            💡 Quick Information
+          </h3>
+
+          <button data-question="What are my voting rights?">
+            🗳
+            <span>What are my voting rights?</span>
+            ›
+          </button>
+
+          <button data-question="How do I file a grievance?">
+            ▣
+            <span>How do I file a grievance?</span>
+            ›
+          </button>
+
+          <button data-question="How do I become a member?">
+            👥
+            <span>How do I become a member?</span>
+            ›
+          </button>
+
+          <button data-question="How does a cooperative election work?">
+            🏛
+            <span>How does a cooperative election work?</span>
+            ›
+          </button>
+
+          <button data-question="What are my legal rights?">
+            ⚖
+            <span>What are my legal rights?</span>
+            ›
+          </button>
+
+        </section>
+
+
+        <section class="grow-card">
+
+          <div>
+            🤝
+          </div>
+
+          <strong>
+            Stronger Cooperatives<br>
+            Build a Better Tomorrow
+          </strong>
+
+          <p>
+            Together We Grow 🌱
+          </p>
+
+        </section>
+
+
+        <section class="language-card">
+
+          <h3>
+            🌐 Supported Languages
+          </h3>
+
+          <button class="selected">
+            🇬🇧 English
+          </button>
+
+          <button>
+            🇮🇳 हिन्दी
+          </button>
+
+          <button>
+            🇮🇳 తెలుగు
+          </button>
+
+        </section>
+
+
+        <section class="notice">
+
+          <strong>
+            🛡 Important Notice
+          </strong>
+
+          <p>
+            The information provided is for guidance only.
+            Please verify important legal matters with the
+            appropriate authority.
+          </p>
+
+        </section>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

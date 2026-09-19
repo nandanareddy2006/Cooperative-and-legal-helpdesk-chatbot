@@ -1,1 +1,12 @@
-{echo   "sources": []echo }
+{
+  "sources": [
+    {
+      "id": "telangana-cooperative-act",
+      "title": "Telangana Cooperative Societies Act",
+      "jurisdiction": "Telangana",
+      "type": "act",
+      "authority": "Government of Telangana",
+      "path": "data/acts/telangana/"
+    }
+  ]
+}

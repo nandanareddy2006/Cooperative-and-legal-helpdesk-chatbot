@@ -1,62 +1,80 @@
 from pathlib import Path
 
-from langchain_community.document_loaders import (
-    PyPDFLoader,
-    TextLoader,
-)
+from dotenv import load_dotenv
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
 
+
+load_dotenv()
 
 DATA_DIR = Path("data")
 VECTORSTORE_DIR = Path("vectorstore")
+
+COLLECTION_NAME = "sahakaar_saathi_legal_sources"
 
 
 def load_documents():
     documents = []
 
-    for path in DATA_DIR.rglob("*"):
-        if not path.is_file():
-            continue
+    for path in DATA_DIR.rglob("*.pdf"):
+        loader = PyPDFLoader(str(path))
+        docs = loader.load()
 
-        suffix = path.suffix.lower()
-
-        if suffix == ".pdf":
-            loader = PyPDFLoader(str(path))
-            documents.extend(loader.load())
-
-        elif suffix in {".txt", ".md"}:
-            loader = TextLoader(
-                str(path),
-                encoding="utf-8"
+        for doc in docs:
+            doc.metadata.update(
+                {
+                    "source_file": path.name,
+                    "jurisdiction": "Telangana",
+                    "document_type": "Act",
+                    "document_title": "Telangana Cooperative Societies Act, 1964",
+                }
             )
-            documents.extend(loader.load())
+
+        documents.extend(docs)
 
     return documents
 
 
 def main():
-    documents = load_documents()
+    print("Loading legal documents...")
 
-    print(f"Loaded {len(documents)} document pages.")
+    documents = load_documents()
+    print(f"Loaded {len(documents)} pages.")
 
     if not documents:
-        print("No source documents found.")
-        print("Add PDF/TXT/MD files under data/ and run this script again.")
+        print("No PDF documents found under data/.")
         return
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=150,
+        chunk_size=1500,
+        chunk_overlap=200,
     )
 
     chunks = splitter.split_documents(documents)
 
-    print(f"Created {len(chunks)} text chunks.")
+    print(f"Created {len(chunks)} chunks.")
+
+    print("Loading local embedding model...")
+
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
 
     VECTORSTORE_DIR.mkdir(exist_ok=True)
 
-    print("Vector database preparation is ready.")
-    print(f"Vectorstore directory: {VECTORSTORE_DIR}")
+    print("Creating Chroma vector store...")
+
+    Chroma.from_documents(
+        documents=chunks,
+        embedding=embeddings,
+        persist_directory=str(VECTORSTORE_DIR),
+        collection_name=COLLECTION_NAME,
+    )
+
+    print("Vector store created successfully.")
+    print(f"Location: {VECTORSTORE_DIR}")
 
 
 if __name__ == "__main__":
