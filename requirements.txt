@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+streamlit
+python-dotenv
+pydantic
+pydantic-settings
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+langgraph
+chromadb
+faiss-cpu
+pypdf
+reportlab
+openai
