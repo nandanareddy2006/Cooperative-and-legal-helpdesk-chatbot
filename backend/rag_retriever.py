@@ -1,26 +1,39 @@
+import os
+from typing import Any, List, Optional
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 VECTORSTORE_DIR = "vectorstore"
 COLLECTION_NAME = "sahakaar_saathi_legal_sources"
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
-)
+_vectorstore_instance: Optional[Chroma] = None
 
-vectorstore = Chroma(
-    persist_directory=VECTORSTORE_DIR,
-    collection_name=COLLECTION_NAME,
-    embedding_function=embeddings,
-)
+
+def get_vectorstore() -> Chroma:
+    """Lazy singleton loader for Chroma vector store and HuggingFace embeddings."""
+    global _vectorstore_instance
+    if _vectorstore_instance is None:
+        embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_kwargs={"device": "cpu"}
+        )
+        _vectorstore_instance = Chroma(
+            persist_directory=VECTORSTORE_DIR,
+            collection_name=COLLECTION_NAME,
+            embedding_function=embeddings,
+        )
+    return _vectorstore_instance
 
 
 def retrieve_documents(
     query: str,
     k: int = 5,
     jurisdiction: str = "Telangana",
-):
-    results = vectorstore.similarity_search(query, k=k)
+) -> List[Any]:
+    store = get_vectorstore()
+    results = store.similarity_search(query, k=k)
 
     unique_results = []
     seen = set()

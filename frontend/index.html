@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Sahakaar-Saathi | Cooperative Helpdesk AI</title>
+  <title>Sahakaar-Saathi | Cooperative Governance, Procedures & Legal Helpdesk AI</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -19,484 +17,245 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-
     <div class="brand">
       <div class="logo">🌱</div>
-
       <div>
         <h1>Sahakaar-Saathi</h1>
-        <p>Your trusted companion for<br>
-        cooperative society support</p>
+        <p>Cooperative Legal, Governance<br>& Grievance Assistant</p>
       </div>
     </div>
 
     <nav>
-
-      <button class="nav-link active">
-        <span>⌂</span> Home
+      <button class="nav-link active" id="navHome">
+        <span>⌂</span> Home / Chat
       </button>
-
-      <button class="nav-link">
-        <span>◌</span> Chat
-      </button>
-
-      <button class="nav-link">
+      <button class="nav-link" id="navProcedures">
         <span>▣</span> Guided Procedures
       </button>
-
-      <button class="nav-link">
-        <span>⚖</span> Legal Help
+      <button class="nav-link" id="navGrievance">
+        <span>⚖</span> File Grievance
       </button>
-
-      <button class="nav-link">
-        <span>▤</span> Knowledge Base
+      <button class="nav-link" id="navRights">
+        <span>🛡</span> Member Rights
       </button>
-
-      <button class="nav-link">
-        <span>◷</span> My Queries
+      <button class="nav-link" id="navGovernance">
+        <span>🏛</span> Society Governance
       </button>
-
     </nav>
 
     <div class="recent-title">
-      RECENT CONVERSATIONS
+      CANONICAL PROCEDURES (TELANGANA)
     </div>
 
-    <div class="recent">
-
-      <button>
-        ◌
+    <div class="recent" id="proceduresList">
+      <button data-proc="registration">
+        <span>📋</span>
         <span>
-          What are my voting rights?
-          <small>Today</small>
+          Society Registration
+          <small>Sec 6-8 (60-90 Days)</small>
         </span>
       </button>
 
-      <button>
-        ◌
+      <button data-proc="agm">
+        <span>📅</span>
         <span>
-          How do I file a grievance?
-          <small>Today</small>
+          Convening AGM & Accounts
+          <small>Sec 30 (Mandatory Annual)</small>
         </span>
       </button>
 
-      <button>
-        ◌
+      <button data-proc="elections">
+        <span>🗳</span>
         <span>
-          Cooperative membership...
-          <small>Yesterday</small>
+          Committee Elections
+          <small>Sec 31 & Election Rules</small>
         </span>
       </button>
 
-      <button>
-        ◌
+      <button data-proc="dispute_filing">
+        <span>⚖</span>
         <span>
-          Election process details
-          <small>Yesterday</small>
+          Section 61 Disputes
+          <small>Registrar / Tribunal</small>
         </span>
       </button>
 
+      <button data-proc="membership">
+        <span>👥</span>
+        <span>
+          Membership & Appeals
+          <small>Sec 19 (Open Membership)</small>
+        </span>
+      </button>
+
+      <button data-proc="bylaw_amendment">
+        <span>📝</span>
+        <span>
+          Bye-Law Amendments
+          <small>Sec 16 (2/3rd Majority)</small>
+        </span>
+      </button>
     </div>
 
     <div class="sidebar-bottom">
-
-      <button class="language">
-        🌐 English⌄
-      </button>
-
       <div class="online">
-        <i></i> Online
+        <i></i> System Online & Zero-Quota Protected
       </div>
-
       <div class="land-art">
         🌿 🏠 🌱 👨‍👩‍👧 🌾
       </div>
-
     </div>
-
   </aside>
 
-
-  <!-- MAIN -->
+  <!-- MAIN AREA -->
   <main class="main">
 
     <!-- HEADER -->
     <header class="header">
-
       <div>
         <h2>Sahakaar-Saathi</h2>
-        <span>Cooperative Helpdesk AI</span>
+        <span>Telangana Cooperative Societies Act, 1964 Legal & Procedural AI</span>
       </div>
 
       <div class="header-links">
-        <a>Understand</a>
+        <a id="hdrProcedures">Guided Procedures</a>
         <b>|</b>
-        <a>Get Guidance</a>
+        <a id="hdrGrievance">Draft Grievance</a>
         <b>|</b>
-        <a>Take Action</a>
+        <a id="hdrLegal">Legal Provisions</a>
       </div>
 
       <div class="header-actions">
-
-        <select id="language">
-          <option>English</option>
-          <option>हिन्दी</option>
-          <option>తెలుగు</option>
+        <select id="language" title="Select Response Language">
+          <option value="English">🇬🇧 English</option>
+          <option value="Telugu">🇮🇳 తెలుగు (Telugu)</option>
+          <option value="Hindi">🇮🇳 हिन्दी (Hindi)</option>
         </select>
-
-        <button class="profile">
-          ♙
+        <button class="action-btn" id="openGrievanceTopBtn">
+          ✍️ File Grievance
         </button>
-
       </div>
-
     </header>
-
 
     <div class="layout">
 
-      <!-- CENTER -->
+      <!-- CENTER CONVERSATION -->
       <section class="center">
 
-        <!-- WELCOME -->
-        <section class="welcome-card">
-
+        <!-- WELCOME CARD -->
+        <section class="welcome-card" id="welcomeCard">
           <div class="bot">
-            <div class="bot-face">
-              🤖
-            </div>
+            <div class="bot-face">🤖</div>
             <span class="sprout">🌱</span>
           </div>
 
           <div class="welcome-text">
-
-            <h3>Namaste! 👋</h3>
-
+            <h3>Namaste! Welcome to Sahakaar-Saathi 👋</h3>
             <p>
-              I'm <strong>Sahakaar-Saathi</strong>, your cooperative society assistant.<br>
-              I can help you with governance, procedures, legal rights, grievances,<br>
-              and more — in your preferred language.
+              Your authoritative legal companion for <strong>Telangana Cooperative Society Governance</strong>,
+              statutory procedures, voting rights, dispute filing, and grievance representations under the
+              <em>Telangana Cooperative Societies Act, 1964</em>.
             </p>
-
           </div>
 
-
-          <!-- QUICK ACTIONS -->
-
+          <!-- QUICK ACTIONS GRID -->
           <div class="quick-grid">
-
-            <button class="quick green"
-                    data-question="What are my voting rights?">
-
+            <button class="quick green" data-question="Who can vote in a cooperative society managing committee election?">
               <span>🗳</span>
-
               <strong>Voting Rights</strong>
-
-              <small>
-                Know your election rights
-              </small>
-
+              <small>Election rules & eligibility</small>
             </button>
 
-
-            <button class="quick blue"
-                    data-question="How do I file a grievance?">
-
-              <span>▣</span>
-
-              <strong>File a Grievance</strong>
-
-              <small>
-                Step-by-step guidance
-              </small>
-
+            <button class="quick blue" data-question="How do I register a new cooperative society?">
+              <span>📋</span>
+              <strong>Registration Guide</strong>
+              <small>Steps, forms & checklist</small>
             </button>
 
-
-            <button class="quick orange"
-                    data-question="How do I become a member?">
-
-              <span>👥</span>
-
-              <strong>Membership</strong>
-
-              <small>
-                Learn the process
-              </small>
-
+            <button class="quick orange" id="quickGrievanceBtn">
+              <span>✍️</span>
+              <strong>Draft Grievance</strong>
+              <small>Formal petition generator</small>
             </button>
 
-
-            <button class="quick purple"
-                    data-question="What are my legal rights?">
-
+            <button class="quick purple" data-question="What are my legal rights to inspect books and audited accounts under Section 114?">
               <span>⚖</span>
-
-              <strong>Legal Help</strong>
-
-              <small>
-                Understand your rights
-              </small>
-
+              <strong>Member Rights</strong>
+              <small>Inspect books & accounts</small>
             </button>
-
           </div>
-
         </section>
 
-
-        <!-- DEMO CHAT -->
-
-        <section class="conversation">
-
-          <div class="user-msg">
-
-            <div class="avatar">
-              M
-            </div>
-
-            <div class="bubble user-bubble">
-              How do I file a grievance?
-              <small>10:24 AM</small>
-            </div>
-
-          </div>
-
-
-          <div class="bot-msg">
-
-            <div class="mini-bot">
-              🤖
-            </div>
-
-            <div>
-
-              <div class="bubble bot-bubble">
-
-                I can help you with the grievance process.
-                Here's a step-by-step guided procedure to file
-                a complaint in your cooperative society.
-
-                <small>10:24 AM</small>
-
-              </div>
-
-
-              <!-- PROCEDURE -->
-
-              <div class="procedure-card">
-
-                <div class="proc-head">
-
-                  <div class="proc-icon">
-                    ▣
-                  </div>
-
-                  <div>
-
-                    <strong>
-                      Grievance Filing Procedure
-                    </strong>
-
-                    <span>
-                      Follow these 4 simple steps to file your grievance.
-                    </span>
-
-                  </div>
-
-                </div>
-
-
-                <div class="steps">
-
-                  <div class="step active">
-                    <b>1</b>
-                    <span>Describe Issue</span>
-                  </div>
-
-                  <i></i>
-
-                  <div class="step">
-                    <b>2</b>
-                    <span>Prepare Documents</span>
-                  </div>
-
-                  <i></i>
-
-                  <div class="step">
-                    <b>3</b>
-                    <span>Write Complaint</span>
-                  </div>
-
-                  <i></i>
-
-                  <div class="step">
-                    <b>4</b>
-                    <span>Submit</span>
-                  </div>
-
-                </div>
-
-
-                <div class="step-content">
-
-                  <div class="step-number">
-                    1
-                  </div>
-
-                  <div class="step-copy">
-
-                    <h4>
-                      Describe Your Issue
-                    </h4>
-
-                    <p>
-                      Tell us what happened and what you need help with.
-                      Be as specific as possible.
-                    </p>
-
-                    <input
-                      placeholder="Example: The society rejected my membership without giving a reason..."
-                    >
-
-                  </div>
-
-                  <button id="nextStep">
-                    Next Step →
-                  </button>
-
-                </div>
-
-                <small class="card-time">
-                  10:24 AM
-                </small>
-
-              </div>
-
-            </div>
-
-          </div>
-
+        <!-- CHAT CONVERSATION CONTAINER -->
+        <section class="conversation" id="conversationArea">
+          <!-- Dynamic conversation messages appear here -->
         </section>
 
-
-        <!-- CHAT INPUT -->
-
+        <!-- CHAT INPUT BAR -->
         <div class="chat-area">
-
-          <button class="clip">
-            📎
+          <button class="clip" id="clipBtn" title="Draft Formal Grievance Letter">
+            ✍️
           </button>
-
           <textarea
             id="message"
             rows="1"
-            placeholder="Type your question here..."
+            placeholder="Ask anything about cooperative governance, procedures, legal sections, or disputes..."
           ></textarea>
-
-          <button class="send" id="send">
+          <button class="send" id="send" title="Send Question">
             ➤
           </button>
-
         </div>
 
       </section>
 
-
-      <!-- RIGHT PANEL -->
-
+      <!-- RIGHT INFORMATION PANEL -->
       <aside class="rightbar">
 
         <section class="info-card">
-
-          <h3>
-            💡 Quick Information
-          </h3>
-
-          <button data-question="What are my voting rights?">
+          <h3>💡 Quick Legal Queries</h3>
+          <button data-question="Who is entitled to vote in general body meetings under Section 19?">
             🗳
-            <span>What are my voting rights?</span>
+            <span>Voting & quorum requirements</span>
             ›
           </button>
-
-          <button data-question="How do I file a grievance?">
-            ▣
-            <span>How do I file a grievance?</span>
-            ›
-          </button>
-
-          <button data-question="How do I become a member?">
-            👥
-            <span>How do I become a member?</span>
-            ›
-          </button>
-
-          <button data-question="How does a cooperative election work?">
-            🏛
-            <span>How does a cooperative election work?</span>
-            ›
-          </button>
-
-          <button data-question="What are my legal rights?">
+          <button data-question="How do I file a dispute under Section 61 before the Registrar?">
             ⚖
-            <span>What are my legal rights?</span>
+            <span>Dispute remedies under Section 61</span>
             ›
           </button>
-
+          <button data-question="What is the statutory deadline for conducting an Annual General Body Meeting?">
+            📅
+            <span>AGM statutory deadlines</span>
+            ›
+          </button>
+          <button data-question="What are the grounds for surcharge proceedings under Section 60?">
+            💰
+            <span>Surcharge action for fund loss</span>
+            ›
+          </button>
+          <button data-question="How can society bye-laws be amended under Section 16?">
+            📝
+            <span>Procedure to amend bye-laws</span>
+            ›
+          </button>
         </section>
-
 
         <section class="grow-card">
-
-          <div>
-            🤝
-          </div>
-
+          <div>🤝</div>
           <strong>
-            Stronger Cooperatives<br>
-            Build a Better Tomorrow
+            Democracy & Transparency<br>
+            in Cooperative Governance
           </strong>
-
           <p>
-            Together We Grow 🌱
+            Sahakaar Saathi ensures fair, open, and legally compliant cooperative management. 🌱
           </p>
-
         </section>
-
-
-        <section class="language-card">
-
-          <h3>
-            🌐 Supported Languages
-          </h3>
-
-          <button class="selected">
-            🇬🇧 English
-          </button>
-
-          <button>
-            🇮🇳 हिन्दी
-          </button>
-
-          <button>
-            🇮🇳 తెలుగు
-          </button>
-
-        </section>
-
 
         <section class="notice">
-
-          <strong>
-            🛡 Important Notice
-          </strong>
-
+          <strong>🛡 Statutory Reference</strong>
           <p>
-            The information provided is for guidance only.
-            Please verify important legal matters with the
-            appropriate authority.
+            Grounding: <em>Telangana Cooperative Societies Act, 1964</em>. All generated petitions, checklists, and manuals follow official statutory schedules.
           </p>
-
         </section>
 
       </aside>
@@ -507,7 +266,118 @@
 
 </div>
 
-<script src="app.js"></script>
+<!-- ========================================== -->
+<!-- GRIEVANCE DRAFT BUILDER MODAL -->
+<!-- ========================================== -->
+<div class="modal-overlay" id="grievanceModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div>
+        <h3>⚖️ Statutory Grievance & Representation Generator</h3>
+        <p>Draft a legally compliant representation under the Telangana Cooperative Societies Act, 1964</p>
+      </div>
+      <button class="modal-close" id="closeGrievanceModal">&times;</button>
+    </div>
 
+    <form id="grievanceForm" class="modal-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Complainant Full Name *</label>
+          <input type="text" id="gCompName" required placeholder="e.g. Ramesh Kumar">
+        </div>
+        <div class="form-group">
+          <label>Contact Phone Number</label>
+          <input type="text" id="gCompPhone" placeholder="e.g. 9876543210">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Complainant Address *</label>
+          <input type="text" id="gCompAddress" required placeholder="e.g. H.No 4-12, Karimnagar, Telangana">
+        </div>
+        <div class="form-group">
+          <label>Membership / Share No. (if member)</label>
+          <input type="text" id="gCompMemNo" placeholder="e.g. MEM-409">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Respondent Cooperative Society Name *</label>
+          <input type="text" id="gSocName" required placeholder="e.g. Karimnagar Farmers Service Cooperative Society">
+        </div>
+        <div class="form-group">
+          <label>Society Registration No. (if known)</label>
+          <input type="text" id="gSocRegNo" placeholder="e.g. CCS-1994/KM">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Society Office Address *</label>
+        <input type="text" id="gSocAddress" required placeholder="e.g. Main Road, Karimnagar District, Telangana">
+      </div>
+
+      <div class="form-group">
+        <label>Statutory Grievance Category *</label>
+        <select id="gCategory" required>
+          <option value="MEMBERSHIP_DENIAL">Arbitrary Denial or Delay of Membership (Sec 19 & 21)</option>
+          <option value="ELECTION_MALPRACTICE">Election Irregularities & Voter List Tampering (Sec 31 & 61)</option>
+          <option value="FINANCIAL_IRREGULARITY">Misappropriation of Funds & Surcharge (Sec 51 & 60)</option>
+          <option value="RECORDS_DENIAL">Denial of Inspection of Books & Accounts (Sec 114 & 115)</option>
+          <option value="FAILURE_TO_HOLD_AGM">Failure to Convene Mandatory AGM (Sec 30 & 34)</option>
+          <option value="ARBITRARY_EXPULSION">Unlawful Expulsion of Member (Sec 21A)</option>
+          <option value="UNLAWFUL_LOAN_RECOVERY">Coercive Loan Recovery & Illegal Surcharge (Sec 70 & 71)</option>
+          <option value="GENERAL_DISPUTE">General Cooperative Dispute (Sec 61)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Statement of Facts & Specific Incidents *</label>
+        <textarea id="gFacts" rows="4" required placeholder="Detail the dates, meetings, arbitrary actions, or violations committed by the managing committee..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Specific Relief / Prayer Demanded</label>
+        <input type="text" id="gRelief" placeholder="e.g. Order society to immediately admit complainant and produce member registers">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="previewGrievanceBtn">👁️ Preview Formal Letter</button>
+        <button type="button" class="btn-primary" id="downloadGrievancePdfBtn">📥 Download Official Petition (PDF)</button>
+      </div>
+    </form>
+
+    <div id="grievancePreviewArea" class="letter-preview" style="display:none;">
+      <h4>📄 Formal Representation Preview</h4>
+      <pre id="grievancePreviewText"></pre>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- GUIDED PROCEDURE MODAL -->
+<!-- ========================================== -->
+<div class="modal-overlay" id="procedureModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div>
+        <h3 id="procModalTitle">📋 Guided Procedure Manual</h3>
+        <p id="procModalRef">Telangana Cooperative Societies Act, 1964</p>
+      </div>
+      <button class="modal-close" id="closeProcedureModal">&times;</button>
+    </div>
+
+    <div class="modal-body" id="procedureModalBody">
+      <!-- Injected dynamically by app.js -->
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn-primary" id="downloadProcPdfModalBtn">📥 Download Procedure Manual (PDF)</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
