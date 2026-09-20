@@ -8,6 +8,10 @@ langchain
 langchain-community
 langchain-core
 langchain-text-splitters
+langchain-google-genai
+langchain-chroma
+langchain-huggingface
+sentence-transformers
 langgraph
 chromadb
 faiss-cpu

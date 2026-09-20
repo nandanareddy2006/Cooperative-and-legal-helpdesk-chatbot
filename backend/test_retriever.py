@@ -1,4 +1,7 @@
-from rag_retriever import retrieve_documents
+try:
+    from backend.rag_retriever import retrieve_documents
+except ImportError:
+    from rag_retriever import retrieve_documents
 
 
 query = "Who can vote in a cooperative society general election?"
