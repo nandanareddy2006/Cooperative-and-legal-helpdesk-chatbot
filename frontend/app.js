@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "http://127.0.0.1:8001";
 const CHAT_ENDPOINT = "/chat";
 
 const input = document.getElementById("message");
@@ -364,7 +364,7 @@ send.addEventListener("click", () => {
 });
 
 // Enter key
-input.addEventListener("keydown", event => {
+input.addEventListener("keydown", (event) => {
     if (event.key === "Enter" && !event.shiftKey) {
         event.preventDefault();
         sendQuestion(input.value);

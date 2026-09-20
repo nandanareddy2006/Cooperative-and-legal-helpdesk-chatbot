@@ -611,15 +611,21 @@ select {
 
 .chat-area textarea {
   flex: 1;
-
   border: 0;
   outline: 0;
-
   resize: none;
-
   padding: 11px;
-
   font-size: 12px;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+  background: white;
+  color: #222;
+}
+
+.chat-area {
+  position: relative;
+  z-index: 10;
 }
 
 .clip,
@@ -1103,4 +1109,33 @@ select {
     font-size: 19px;
   }
 
+}
+
+/* FIX: grievance form input interaction */
+.modal-overlay {
+  pointer-events: auto !important;
+}
+
+.modal-card {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 1001;
+}
+
+.modal-card input,
+.modal-card textarea,
+.modal-card select,
+.modal-card button {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 1002;
+}
+
+.modal-card input,
+.modal-card textarea {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  background: #fff !important;
+  color: #222 !important;
+  caret-color: #222 !important;
 }
